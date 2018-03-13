@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var myObject = {
+        foo:'bar',
+        func:function() {
+            var self = this;
+            console.log(this.foo);
+            console.log(self.foo);
+            (function() {
+                console.log(this.foo);
+                console.log(self.foo);
+            }());
+        }
+    };
+    let a;
+    myObject.func();
+
+
+    function test() {
+        var  n = 666;
+        function add() {
+            n++;
+            console.log(n);
+        }
+        return {
+            n:n,
+            add:add
+        };
+
+    }
+
+    var r1 = test();
+    var r2 = test();
+    r1.add()
+    r1.add()
+    console.log(r1.n);
+    console.log(r2.n);
+    r2.add();
+    console.log(n)
+
+
+</script>
+
+</body>
+</html>

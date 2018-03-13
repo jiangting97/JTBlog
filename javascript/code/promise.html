@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    https://zhuanlan.zhihu.com/p/30797777
+</div>
+
+<!--<script src="../../node_modules/lie/dist/lie.js"></script>-->
+<script>
+    Promise.resolve(123456)
+        .then(2)
+        .then(Promise.resolve(3))
+        .then(console.log)
+    const promiseaa = Promise.resolve()
+        .then(() => {
+            console.log("aaaa")
+            return promise
+        })
+    promiseaa.catch(console.error)
+
+
+
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('once')
+            resolve('success')
+        }, 1000)
+    })
+
+    const start = Date.now()
+    promise.then((res) => {
+        console.log(res, Date.now() - start)
+    })
+    promise.then((res) => {
+        console.log(res, Date.now() - start)
+    })
+
+    const promise123 = new Promise((resolve, reject) => {
+        resolve('success1')
+        reject('error')
+        resolve('success2')
+    })
+
+    promise123
+        .then((res) => {
+            console.log('then: ', res)
+        })
+        .catch((err) => {
+            console.log('catch: ', err)
+        })
+
+
+    const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('success')
+        }, 1000)
+    })
+    const promise2 = promise1.then(() => {
+        throw new Error('error!!!')
+    })
+
+    console.log('promise1', promise1)
+    console.log('promise2', promise2)
+
+    setTimeout(() => {
+        console.log('promise1', promise1)
+        console.log('promise2', promise2)
+    }, 2000)
+
+    console.log(Promise);
+    new Promise(resolve => {
+        console.log(1);
+        resolve(3);
+        Promise.resolve().then(() => console.log(4))
+    }).then(num => {
+        console.log(num)
+    });
+    console.log(2);
+
+    let resolver = function(resolve) {
+        console.log(200)
+       resolve(1000)
+        // resolver执行完了还没执行resolve
+    };
+    new Promise(resolver).then(num => console.log(num));
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="div-1">
+    <div id="div-2">
+        <div id="div-3">hello, world</div>
+    </div>
+</div>
+
+<script>
+
+    var div1 = document.getElementById("div-1"),
+        div2 = document.getElementById("div-2"),
+        div3 = document.getElementById("div-3");
+    function printInfo(event){
+        console.log("eventPhase=" + event.eventPhase + " " + this.id);
+    }
+    div1.addEventListener("click", printInfo, true);
+    div2.addEventListener("click", printInfo, true);
+    div3.addEventListener("click", printInfo, true);
+
+    div1.addEventListener("click", printInfo);
+    div2.addEventListener("click", printInfo);
+    div3.addEventListener("click", printInfo);
+
+</script>
+</body>
+</html>

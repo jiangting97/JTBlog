@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="ul-wrap">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+
+</ul>
+
+<script>
+    var ul = document.getElementById('ul-wrap');
+    ul.addEventListener('click', function onaa() {
+        console.log(event.target);
+        console.log(event.target.valueOf());
+    })
+</script>
+</body>
+</html>

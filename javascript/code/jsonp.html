@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function hello(arg) {
+        console.log(arg);
+    }
+
+</script>
+json的原理其实很简单，只要保证script标签加载的是一个合法的js代码文件即可。然后有人把要传输的数据设计成这个样子： foo( { json数据 } )。 然后赶巧在你的前端定义一个函数
+foo，然后一切就水到渠成了。（js引擎会认为你在调用一个一个函数，并且传递了一个对象给函数。然后你可就可以在foo函数内部愉快的处理 传过来的你希望的json数据了，注意已经解析成了json对象或者json数组）或者干脆把数据设计成这样：
+var data = {json数据}。 这样连函数都省的定义了。
+<script src="hello.js"></script>
+<script>
+    var script = document.getElementsByTagName('script');
+    console.log(script);
+    script.onload = function () {
+        console.log("onload");
+    }
+
+</script>
+<div>aa</div>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+
+    function deepCopy(obj) {
+        let target = Array.isArray(obj) ? [] : {} ;
+
+        for( let i in obj) {
+            if(typeof obj==='array' || typeof obj === 'object') {
+                target[i] = deepCopy(obj[i])
+            } else {
+                target[i]=obj[i];
+            }
+        }
+        return target;
+    }
+
+    function whatBrowser() {
+        document.Browser.Name.value=navigator.appName;
+        document.Browser.Version.value=navigator.appVersion;
+        document.Browser.Code.value=navigator.appCodeName;
+        document.Browser.Agent.value=navigator.userAgent;
+    }
+
+</script>
+</body>
+</html>
